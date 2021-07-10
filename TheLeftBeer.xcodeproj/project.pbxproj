@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A5E67E826989D8D0065A6BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5E67E726989D8D0065A6BF /* AppDelegate.swift */; };
 		1A5E67EA26989D8D0065A6BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5E67E926989D8D0065A6BF /* SceneDelegate.swift */; };
-		1A5E67EC26989D8D0065A6BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5E67EB26989D8D0065A6BF /* ViewController.swift */; };
 		1A5E67EF26989D8D0065A6BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A5E67ED26989D8D0065A6BF /* Main.storyboard */; };
 		1A5E67F126989D900065A6BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5E67F026989D900065A6BF /* Assets.xcassets */; };
 		1A5E67F426989D900065A6BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A5E67F226989D900065A6BF /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		1A5E67E426989D8D0065A6BF /* TheLeftBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLeftBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A5E67E726989D8D0065A6BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A5E67E926989D8D0065A6BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A5E67EB26989D8D0065A6BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A5E67EE26989D8D0065A6BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A5E67F026989D900065A6BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A5E67F326989D900065A6BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,134 @@
 		1A5E67E626989D8D0065A6BF /* TheLeftBeer */ = {
 			isa = PBXGroup;
 			children = (
-				1A5E67E726989D8D0065A6BF /* AppDelegate.swift */,
-				1A5E67E926989D8D0065A6BF /* SceneDelegate.swift */,
-				1A5E67EB26989D8D0065A6BF /* ViewController.swift */,
-				1A5E67ED26989D8D0065A6BF /* Main.storyboard */,
+				1A5E680926989FEE0065A6BF /* Models */,
+				1A5E680826989FE60065A6BF /* Extensions */,
+				1A5E680726989FD80065A6BF /* Services */,
+				1A5E680326989FBA0065A6BF /* Controllers */,
+				1A5E680226989F970065A6BF /* Storyboards */,
+				1A5E67FE26989F6A0065A6BF /* Settings */,
+				1A5E67FC26989F3F0065A6BF /* States */,
+				1A5E67FB26989F220065A6BF /* Supporting */,
 				1A5E67F026989D900065A6BF /* Assets.xcassets */,
-				1A5E67F226989D900065A6BF /* LaunchScreen.storyboard */,
-				1A5E67F526989D900065A6BF /* Info.plist */,
 			);
 			path = TheLeftBeer;
+			sourceTree = "<group>";
+		};
+		1A5E67FB26989F220065A6BF /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		1A5E67FC26989F3F0065A6BF /* States */ = {
+			isa = PBXGroup;
+			children = (
+				1A5E67FD26989F4B0065A6BF /* BeerList */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		1A5E67FD26989F4B0065A6BF /* BeerList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BeerList;
+			sourceTree = "<group>";
+		};
+		1A5E67FE26989F6A0065A6BF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1A5E680126989F8B0065A6BF /* App */,
+				1A5E680026989F840065A6BF /* State */,
+				1A5E67FF26989F7D0065A6BF /* URLSession */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1A5E67FF26989F7D0065A6BF /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		1A5E680026989F840065A6BF /* State */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		1A5E680126989F8B0065A6BF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1A5E67E726989D8D0065A6BF /* AppDelegate.swift */,
+				1A5E67E926989D8D0065A6BF /* SceneDelegate.swift */,
+				1A5E67F526989D900065A6BF /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1A5E680226989F970065A6BF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1A5E67ED26989D8D0065A6BF /* Main.storyboard */,
+				1A5E67F226989D900065A6BF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1A5E680326989FBA0065A6BF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A5E680626989FCF0065A6BF /* StartUp */,
+				1A5E680526989FC80065A6BF /* BeerList */,
+				1A5E680426989FBE0065A6BF /* BeerDetail */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A5E680426989FBE0065A6BF /* BeerDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BeerDetail;
+			sourceTree = "<group>";
+		};
+		1A5E680526989FC80065A6BF /* BeerList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BeerList;
+			sourceTree = "<group>";
+		};
+		1A5E680626989FCF0065A6BF /* StartUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StartUp;
+			sourceTree = "<group>";
+		};
+		1A5E680726989FD80065A6BF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1A5E680826989FE60065A6BF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A5E680926989FEE0065A6BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A5E67EC26989D8D0065A6BF /* ViewController.swift in Sources */,
 				1A5E67E826989D8D0065A6BF /* AppDelegate.swift in Sources */,
 				1A5E67EA26989D8D0065A6BF /* SceneDelegate.swift in Sources */,
 			);
@@ -288,7 +404,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y98RBRXD5B;
-				INFOPLIST_FILE = TheLeftBeer/Info.plist;
+				INFOPLIST_FILE = TheLeftBeer/Settings/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y98RBRXD5B;
-				INFOPLIST_FILE = TheLeftBeer/Info.plist;
+				INFOPLIST_FILE = TheLeftBeer/Settings/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
