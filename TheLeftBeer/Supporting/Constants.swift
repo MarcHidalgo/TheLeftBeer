@@ -22,4 +22,11 @@ struct Constants {
         static let Empty = "EmptyViewController"
         static let Error = "ErrorViewController"
     }
+    
+    public enum URLTaskError: Error {
+        
+        case invalidURL
+        case emptyResponse
+        case invalidRequestURL
+    }
 }
