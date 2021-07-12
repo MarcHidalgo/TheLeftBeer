@@ -29,3 +29,5 @@ public extension URLTaskConfiguration {
     
     static let `default` = URLTaskConfiguration(sessionConfiguration: .default, baseURL: URL(string: "https://api.punkapi.com/v2/beers")!)
 }
+
+

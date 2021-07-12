@@ -32,13 +32,9 @@ final class BeerListViewController: UIViewController, LoadingHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         fetchData()
         setUpRefreshCollection()
+        
     }
 
 }
@@ -79,7 +75,7 @@ extension BeerListViewController : UICollectionViewDataSource {
         }
 
         configureCell(cell: cell, indexPath: indexPath)
-
+        
         return cell
         
     }
@@ -96,38 +92,36 @@ extension BeerListViewController : UICollectionViewDataSource {
                 
                 BeerService().get(self.beerService.page, queue: .main) { [weak self] beersResult in
                          
-                        guard let self = self else { return }
-                        do {
-                            let beers = try beersResult.get()
+                    guard let self = self else { return }
+                    do {
+                        let beers = try beersResult.get()
+                        
+                        if !beers.isEmpty {
+                            self.beerService.beers.append(contentsOf: beers)
+                        
+                            self.beerService.isfetchingData = false
+                            self.beerService.page += 1
+                        
+                            let newCount = itemsCount + (beers.count-1)
+                            let indexPaths = Array(itemsCount...newCount).map { IndexPath(item: $0, section: 0) }
                             
-                            if !beers.isEmpty {
-                                self.beerService.beers.append(contentsOf: beers)
-                            
-                                self.beerService.isfetchingData = false
-                                self.beerService.page += 1
-                            
-                                let newCount = itemsCount + (beers.count-1)
-                                let indexPaths = Array(itemsCount...newCount).map { IndexPath(item: $0, section: 0) }
-                                
-                                DispatchQueue.main.async {
+                            DispatchQueue.main.async {
 
-                                    self.collectionView.insertItems(at: indexPaths)
-                                }
-                            }else{
-                                self.beerService.fetchMore = false
+                                self.collectionView.insertItems(at: indexPaths)
                             }
-  
-                        } catch let error {
-                    
-                            print(error)
-                    
+                        }else{
+                            self.beerService.fetchMore = false
                         }
+
+                    } catch let error {
+                
+                        print(error)
+                
                     }
                 }
             }
-
+        }
     }
-    
 }
 
 extension BeerListViewController: UICollectionViewDelegateFlowLayout {
@@ -260,4 +254,6 @@ extension BeerListViewController{
         refreshControl.endRefreshing()
        
     }
+    
+    
 }

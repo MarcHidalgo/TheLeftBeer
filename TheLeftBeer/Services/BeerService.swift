@@ -18,7 +18,7 @@ public class BeerService {
     var isfetchingData = false
     var firstLoad = true
     var page = 2
-    
+
     public init(configuration: URLTaskConfiguration = .default) {
         
         self.configuration = configuration
@@ -26,8 +26,8 @@ public class BeerService {
 
     public func get(_ page:Int, queue: DispatchQueue = .global(qos: .background), completion: @escaping(Result<[Beer], Error>) -> Void)  {
         
-        let url2 = URL(string: "\(configuration.baseURL)?page=\(page)&per_page=25")!
-        let components = URLComponents(url: url2, resolvingAgainstBaseURL: true)
+        let url = URL(string: "\(configuration.baseURL)?page=\(page)&per_page=25")!
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
        
         guard let requestURL = components?.url else {
             

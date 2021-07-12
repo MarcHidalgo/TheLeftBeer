@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BSWFoundation",
+        "repositoryURL": "https://github.com/theleftbit/BSWFoundation.git",
+        "state": {
+          "branch": null,
+          "revision": "7fe3f7c680ca6bff93e892f40fecc4302152f7f6",
+          "version": "4.2.0"
+        }
+      },
+      {
+        "package": "BSWInterfaceKit",
+        "repositoryURL": "https://github.com/theleftbit/BSWInterfaceKit.git",
+        "state": {
+          "branch": null,
+          "revision": "174330cc164605f2201b51733cb0a3412e06b264",
+          "version": "4.2.1"
+        }
+      },
+      {
+        "package": "Deferred",
+        "repositoryURL": "https://github.com/theleftbit/Deferred.git",
+        "state": {
+          "branch": null,
+          "revision": "8d601f0597135179a4b2f72b99fd196e6067dabe",
+          "version": "4.2.1"
+        }
+      },
+      {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
+        "state": {
+          "branch": null,
+          "revision": "84e546727d66f1adc5439debad16270d0fdd04e7",
+          "version": "4.2.2"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "83e1edaa5a30c567eb129c21c6d00f2f552d2c6f",
+          "version": "10.3.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
