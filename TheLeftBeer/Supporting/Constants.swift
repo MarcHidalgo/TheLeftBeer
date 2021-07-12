@@ -29,4 +29,5 @@ struct Constants {
         case emptyResponse
         case invalidRequestURL
     }
+
 }

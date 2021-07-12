@@ -14,8 +14,8 @@ public enum Unit: String, Codable {
     case litres = "litres"
 }
 
-public struct Beer: Codable {
-    let id: Int
+public struct Beer: Codable, Identifiable {
+    public let id: Int
     let name, description: String
     let imageUrl: String?
     let ibu: Double?

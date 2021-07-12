@@ -24,7 +24,7 @@ class ErrorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.errorLabel.text = "Error"
+        setErrorLabel(error: error)
        
     }
     
