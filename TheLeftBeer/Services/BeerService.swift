@@ -26,7 +26,10 @@ public class BeerService {
 
     public func get(_ page:Int, queue: DispatchQueue = .global(qos: .background), completion: @escaping(Result<[Beer], Error>) -> Void)  {
         
-        let url = URL(string: "\(configuration.baseURL)?page=\(page)&per_page=25")!
+        guard let url = URL(string: "\(configuration.baseURL)?page=\(page)&per_page=25") else {
+            completion(.failure(Constants.URLTaskError.invalidURL))
+            return
+        }
         let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
        
         guard let requestURL = components?.url else {
