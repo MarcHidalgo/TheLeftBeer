@@ -251,7 +251,7 @@ extension BeerListViewController{
     private func didPullToRefresh(_ sender: Any) {
         
         refreshControl.beginRefreshing()
-        refreshControl.endRefreshing()
+        fetchData()
        
     }
     
