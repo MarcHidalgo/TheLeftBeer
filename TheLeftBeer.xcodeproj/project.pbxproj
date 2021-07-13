@@ -32,6 +32,7 @@
 		1AF2920D2699D4C3009C3A49 /* URLTaskConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF2920C2699D4C3009C3A49 /* URLTaskConfiguration.swift */; };
 		1AF2920F2699D583009C3A49 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF2920E2699D583009C3A49 /* Beer.swift */; };
 		1AF292112699E47B009C3A49 /* LoadingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF292102699E47B009C3A49 /* LoadingHandler.swift */; };
+		1AF29215269D174F009C3A49 /* BeerListFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF29214269D174F009C3A49 /* BeerListFooterCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +75,7 @@
 		1AF2920C2699D4C3009C3A49 /* URLTaskConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTaskConfiguration.swift; sourceTree = "<group>"; };
 		1AF2920E2699D583009C3A49 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		1AF292102699E47B009C3A49 /* LoadingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHandler.swift; sourceTree = "<group>"; };
+		1AF29214269D174F009C3A49 /* BeerListFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				1AF291F3269998E7009C3A49 /* BeerListCollectionViewCell.swift */,
+				1AF29214269D174F009C3A49 /* BeerListFooterCollectionReusableView.swift */,
 			);
 			path = BeerList;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				1AF291E626998C1A009C3A49 /* UIVIewController+Extensions.swift in Sources */,
 				1AF291F4269998E7009C3A49 /* BeerListCollectionViewCell.swift in Sources */,
 				1A5E68132698ED840065A6BF /* StateProvider.swift in Sources */,
+				1AF29215269D174F009C3A49 /* BeerListFooterCollectionReusableView.swift in Sources */,
 				1AF291FA26999CB4009C3A49 /* EmptyViewController.swift in Sources */,
 				1A5E67EA26989D8D0065A6BF /* SceneDelegate.swift in Sources */,
 				1A5E680D2698C4DC0065A6BF /* Constants.swift in Sources */,

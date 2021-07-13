@@ -16,15 +16,15 @@ public class BeerService {
     var beers: [Beer] = []
     var fetchMore = true
     var isfetchingData = false
-    var firstLoad = true
-    var page = 2
+    var currentPage = 2
+    var errorFetchMore = ""
 
     public init(configuration: URLTaskConfiguration = .default) {
         
         self.configuration = configuration
     }
 
-    public func get(_ page:Int, queue: DispatchQueue = .global(qos: .background), completion: @escaping(Result<[Beer], Error>) -> Void)  {
+    public func get(_ page:Int, queue: DispatchQueue = .main, completion: @escaping(Result<[Beer], Error>) -> Void)  {
         
         guard let url = URL(string: "\(configuration.baseURL)?page=\(page)&per_page=25") else {
             completion(.failure(Constants.URLTaskError.invalidURL))
