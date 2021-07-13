@@ -41,7 +41,7 @@ struct DetailBeerSwiftUIView: View {
                 VStack(alignment: .center, spacing: 1) {
                     
                     HStack (alignment: .center, spacing: 1, content: {
-                        Text("IBU")
+                        Text("IBU:")
                             .font(.system(size: 21))
                             .fontWeight(.bold)
                             .frame(alignment: .center)
@@ -55,7 +55,7 @@ struct DetailBeerSwiftUIView: View {
                         }
                     })
 
-                    Text("Ingredients")
+                    Text("Ingredients:")
                         .font(.system(size: 21))
                         .fontWeight(.bold)
                         .frame(alignment: .center)
@@ -85,13 +85,9 @@ struct DetailBeerSwiftUIView: View {
                                             .foregroundColor(.gray)
                                             .frame( maxWidth: .infinity, alignment: .center)
                                             .padding()
-                                            
-                                            
-                                        
                                     }
                                 }
                             }
-                            
                             
                         case 2:
                             VStack {
@@ -113,9 +109,6 @@ struct DetailBeerSwiftUIView: View {
                                             .foregroundColor(.gray)
                                             .frame( maxWidth: .infinity, alignment: .center)
                                             .padding()
-                                            
-                                            
-                                        
                                     }
                                 }
                             }
@@ -137,9 +130,10 @@ struct DetailBeerSwiftUIView: View {
                                     .foregroundColor(.gray)
                                     .frame( maxWidth: .infinity, alignment: .center)
                                     .padding()
-  
                             }
+                            
                         default:
+                            
                             Text("")
                                 .font(.headline)
                                 .fontWeight(.semibold)
@@ -147,10 +141,9 @@ struct DetailBeerSwiftUIView: View {
                                 .frame( maxWidth: .infinity, alignment: .center)
                                 .padding()
                         }
-                        
                     }
                     
-                    Text("Food Pairing")
+                    Text("Food Pairing:")
                         .font(.system(size: 21))
                         .fontWeight(.bold)
                         .frame(alignment: .center)
@@ -166,21 +159,12 @@ struct DetailBeerSwiftUIView: View {
                     }
                     
                 }.padding(.bottom,10)
- 
-                
             }
             .navigationBarTitle(Text(beer.name)).navigationBarHidden(false)
             
         }.background(Color(.systemGray6))
-        .edgesIgnoringSafeArea(.leading)
-        .edgesIgnoringSafeArea(.trailing)
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea([.leading, .trailing, .bottom])
+      
     }
 }
-
-/*struct DetailBeerSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailBeerSwiftUIView(beer: <#Beer#>, image: <#UIImage?#>)
-    }
-}*/
 

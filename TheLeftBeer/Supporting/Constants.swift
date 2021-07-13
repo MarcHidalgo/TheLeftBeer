@@ -13,6 +13,8 @@ struct Constants {
         
         //BeerList
         static let BeerCell = "BeerCollectionViewCell"
+        static let BeerListFooter = "BeerListFooter"
+        
     }
     
     struct ViewController {

@@ -80,46 +80,46 @@ extension BeerListViewController : UICollectionViewDataSource {
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+     
+         case UICollectionView.elementKindSectionFooter:
        
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.CollectionViewCell.BeerListFooter, for: indexPath) as? BeerListFooterCollectionReusableView else {
+                
+                return UICollectionReusableView.init()
+            }
+            
+            footerView.delegate = self
+            
+            if self.beerService.errorFetchMore != "" {
+                
+                footerView.retryButton.alpha = 1
+            }else{
+                
+                footerView.retryButton.alpha = 0
+            }
+            
+            footerView.errorLabel.text = self.beerService.errorFetchMore
+            
+            return footerView
+            
+         default:
+           
+           assert(false, "Invalid element type")
+         }
+        
+        
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
         if indexPath.row == self.beerService.beers.count - 1 {
             
-            let itemsCount = self.beerService.beers.count
+            fetchDataPaging()
             
-            if !beerService.isfetchingData && beerService.fetchMore{
-                
-                beerService.isfetchingData = true
-                
-                BeerService().get(self.beerService.page, queue: .main) { [weak self] beersResult in
-                         
-                    guard let self = self else { return }
-                    do {
-                        let beers = try beersResult.get()
-                        
-                        if !beers.isEmpty {
-                            self.beerService.beers.append(contentsOf: beers)
-                        
-                            self.beerService.isfetchingData = false
-                            self.beerService.page += 1
-                        
-                            let newCount = itemsCount + (beers.count-1)
-                            let indexPaths = Array(itemsCount...newCount).map { IndexPath(item: $0, section: 0) }
-                            
-                            DispatchQueue.main.async {
-
-                                self.collectionView.insertItems(at: indexPaths)
-                            }
-                        }else{
-                            self.beerService.fetchMore = false
-                        }
-
-                    } catch let error {
-                
-                        print(error)
-                
-                    }
-                }
-            }
         }
     }
 }
@@ -141,20 +141,71 @@ extension BeerListViewController: UICollectionViewDelegateFlowLayout {
 
 extension BeerListViewController{
     
+    private func fetchDataPaging() {
+
+        let itemsCount = self.beerService.beers.count
+
+        if !beerService.isfetchingData && beerService.fetchMore{
+           
+            beerService.isfetchingData = true
+            
+            BeerService().get(self.beerService.currentPage) { [weak self] beersResult in
+                     
+                guard let self = self else { return }
+                do {
+                    
+                    let beers = try beersResult.get()
+                    
+                    if !beers.isEmpty {
+                        self.beerService.beers.append(contentsOf: beers)
+                    
+                        self.beerService.errorFetchMore = ""
+                        self.collectionView.collectionViewLayout.invalidateLayout()
+                        
+                        self.beerService.currentPage += 1
+                    
+                        let newCount = itemsCount + (beers.count-1)
+                        let indexPaths = Array(itemsCount...newCount).map { IndexPath(item: $0, section: 0) }
+                        
+                        DispatchQueue.main.async {
+
+                            
+                            self.collectionView.insertItems(at: indexPaths)
+                        }
+                    }else{
+                        
+                        self.beerService.fetchMore = false
+                    }
+
+                } catch let error {
+                    
+                    self.beerService.errorFetchMore = error.localizedDescription
+                    
+                    self.collectionView.collectionViewLayout.invalidateLayout()
+            
+                }
+            }
+        }
+        
+        self.beerService.isfetchingData = false
+    }
+    
     private func fetchData() {
         
         if !self.refreshControl.isRefreshing{
             showLoading()
         }
          
-        BeerService().get(1, queue: .main) { [weak self] beersResult in
+        BeerService().get(1) { [weak self] beersResult in
             
             guard let self = self else { return }
             do {
+                self.beerService.currentPage = 2
+                
                 self.beerService.beers = try beersResult.get()
                 
                 StateSettings.shared.stateAfterLoading = .content
-                  
+                
                 self.hideLoading()
                 
                 if self.refreshControl.isRefreshing{
@@ -252,8 +303,12 @@ extension BeerListViewController{
         
         refreshControl.beginRefreshing()
         fetchData()
-       
     }
+}
+
+extension BeerListViewController: BeerListFooterCollectionReusableViewDelegate {
     
-    
+    func reloadFooter() {
+        self.fetchDataPaging()
+    }
 }

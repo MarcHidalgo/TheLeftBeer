@@ -104,7 +104,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="HpJ-Ss-JzD">
                                     <size key="itemSize" width="388" height="171"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="65"/>
                                     <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -153,6 +153,43 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BeerListFooter" id="aZh-GE-V67" customClass="BeerListFooterCollectionReusableView" customModule="TheLeftBeer" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="272" width="414" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aoc-Ze-eKm">
+                                            <rect key="frame" x="16" y="8" width="382" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="kht-Id-hWZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWE-He-xow">
+                                            <rect key="frame" x="8" y="28" width="398" height="37"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <state key="normal" title="Retry">
+                                                <color key="titleColor" systemColor="systemRedColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="retryButtonTapped:" destination="aZh-GE-V67" eventType="touchUpInside" id="0yR-Rb-fUD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="xWE-He-xow" secondAttribute="trailing" constant="8" id="AWR-1W-L73"/>
+                                        <constraint firstItem="Aoc-Ze-eKm" firstAttribute="leading" secondItem="aZh-GE-V67" secondAttribute="leadingMargin" constant="8" id="BBd-rF-8c4"/>
+                                        <constraint firstItem="xWE-He-xow" firstAttribute="leading" secondItem="aZh-GE-V67" secondAttribute="leading" constant="8" id="LvC-SC-dUX"/>
+                                        <constraint firstAttribute="bottom" secondItem="xWE-He-xow" secondAttribute="bottom" id="eLM-0C-fRv"/>
+                                        <constraint firstItem="Aoc-Ze-eKm" firstAttribute="top" secondItem="aZh-GE-V67" secondAttribute="topMargin" id="guJ-OJ-cb7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Aoc-Ze-eKm" secondAttribute="trailing" constant="8" id="ovS-R8-gUS"/>
+                                        <constraint firstItem="xWE-He-xow" firstAttribute="top" secondItem="Aoc-Ze-eKm" secondAttribute="bottom" id="yxx-7p-tM8"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="errorLabel" destination="Aoc-Ze-eKm" id="VUK-Fj-o85"/>
+                                        <outlet property="retryButton" destination="xWE-He-xow" id="kLm-te-xSd"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="aKj-1w-5Dp" id="mbr-WV-SCl"/>
                                     <outlet property="delegate" destination="aKj-1w-5Dp" id="35G-GW-F0V"/>
@@ -174,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mge-Se-dEw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2183" y="230"/>
+            <point key="canvasLocation" x="2182.608695652174" y="229.6875"/>
         </scene>
         <!--Empty View Controller-->
         <scene sceneID="d7a-JO-bSr">
