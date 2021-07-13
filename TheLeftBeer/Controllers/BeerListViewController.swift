@@ -169,7 +169,6 @@ extension BeerListViewController{
                         
                         DispatchQueue.main.async {
 
-                            
                             self.collectionView.insertItems(at: indexPaths)
                         }
                     }else{
@@ -178,11 +177,13 @@ extension BeerListViewController{
                     }
 
                 } catch let error {
-                    
-                    self.beerService.errorFetchMore = error.localizedDescription
-                    
-                    self.collectionView.collectionViewLayout.invalidateLayout()
-            
+                        
+                    if !self.beerService.fetchMore {
+                        
+                        self.beerService.errorFetchMore = error.localizedDescription
+                            
+                        self.collectionView.collectionViewLayout.invalidateLayout()
+                    }
                 }
             }
         }
